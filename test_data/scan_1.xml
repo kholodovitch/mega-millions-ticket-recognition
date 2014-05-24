@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OCVGraph FormatVersion="0.1">
+	<Filters>
+		<!-- SourceFileImage -->
+		<Filter NodeGuid="00ffe859-d081-440a-9b6f-5babde7e8594" TypeGuid="23949518-127f-4909-801e-72ec65340046">
+			<Property Name="FilePath" Value="D:\Projects\freelance\lottery-tickets-recognition\test_data\scan_00.png" />
+			<Pin Name="Image" ConnectedToNode="7055d741-973c-401c-81f0-652155c66534" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Resize -->
+		<Filter NodeGuid="b19ee2d9-74b8-41c0-a0b5-6b1577b499c9" TypeGuid="1a7b2d59-fca0-4501-ab38-5cb62c627232">
+			<Property Name="New size" Value="480,660" />
+			<Pin Name="Output" ConnectedToNode="b5a36126-9912-4ba0-b2ee-710912c7847d" ConnectedToPin="Input" />
+		</Filter>
+		<!-- SplitHsv -->
+		<Filter NodeGuid="a0287619-b5f2-4911-90ec-9433d49d599f" TypeGuid="559f2ecf-acb9-4e7b-bd46-4f6b19b8e6bc">
+			<Pin Name="H" ConnectedToNode="1cffc7a1-1acb-4423-901f-e2f972affcfe" ConnectedToPin="Input" />
+			<Pin Name="S" ConnectedToNode="9743d71b-8e9d-4e63-bfa9-283eb4d0fa64" ConnectedToPin="Input" />
+			<Pin Name="V" />
+		</Filter>
+		<!-- WinFormsRenderer -->
+		<Filter NodeGuid="4dbb37cd-b9a9-4c7f-b63e-dde600d7f80d" TypeGuid="39ef4f36-2239-4e02-92e2-d65e8b63b396">
+			<Property Name="Name" Value="Image" />
+			<Property Name="Size" Value="480,540" />
+			<Property Name="Point" Value="1920,0" />
+			<Property Name="Border" Value="None" />
+			<Property Name="Zoom" Value="100" />
+		</Filter>
+		<!-- WinFormsRenderer -->
+		<Filter NodeGuid="f6368250-6f51-4ea8-99c4-d95daa509073" TypeGuid="39ef4f36-2239-4e02-92e2-d65e8b63b396">
+			<Property Name="Name" Value="Image" />
+			<Property Name="Size" Value="480,540" />
+			<Property Name="Point" Value="2400,0" />
+			<Property Name="Border" Value="None" />
+			<Property Name="Zoom" Value="100" />
+		</Filter>
+		<!-- InRange -->
+		<Filter NodeGuid="9743d71b-8e9d-4e63-bfa9-283eb4d0fa64" TypeGuid="b095957a-eeb6-498e-bfe7-34b3d8ee1693">
+			<Property Name="Min value" Value="120" />
+			<Property Name="Max value" Value="255" />
+			<Pin Name="Filtered" ConnectedToNode="dcb42350-f706-45bc-9043-934961370b1a" ConnectedToPin="Input" />
+		</Filter>
+		<!-- InRange -->
+		<Filter NodeGuid="1cffc7a1-1acb-4423-901f-e2f972affcfe" TypeGuid="b095957a-eeb6-498e-bfe7-34b3d8ee1693">
+			<Property Name="Min value" Value="120" />
+			<Property Name="Max value" Value="255" />
+			<Pin Name="Filtered" ConnectedToNode="2ce4c4f3-6ac9-4f46-8e1e-2923df61caf5" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Blur -->
+		<Filter NodeGuid="7055d741-973c-401c-81f0-652155c66534" TypeGuid="48421e5c-5d99-4182-8b4e-1633d2567300">
+			<Pin Name="Output" ConnectedToNode="34b5e90a-6bf9-445f-93b9-7f93465d74e2" ConnectedToPin="Input" />
+		</Filter>
+		<!-- ConvertToHsv -->
+		<Filter NodeGuid="8a9a34fc-aa3d-4ce5-88df-7e510a1c4116" TypeGuid="ed0550fd-4a25-4580-a7dd-88b191a0294d">
+			<Pin Name="HSV" ConnectedToNode="a0287619-b5f2-4911-90ec-9433d49d599f" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Blur -->
+		<Filter NodeGuid="34b5e90a-6bf9-445f-93b9-7f93465d74e2" TypeGuid="48421e5c-5d99-4182-8b4e-1633d2567300">
+			<Pin Name="Output" ConnectedToNode="b19ee2d9-74b8-41c0-a0b5-6b1577b499c9" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Clone -->
+		<Filter NodeGuid="2ce4c4f3-6ac9-4f46-8e1e-2923df61caf5" TypeGuid="27a97ffe-065b-4684-9035-80793463eb7b">
+			<Property Name="Count of copies" Value="1" />
+			<Pin Name="Original" ConnectedToNode="4dbb37cd-b9a9-4c7f-b63e-dde600d7f80d" ConnectedToPin="Image" />
+			<Pin Name="Copy № 1" ConnectedToNode="c1bfd728-c75e-464b-a955-2dcadc60913e" ConnectedToPin="Input 0" />
+		</Filter>
+		<!-- Clone -->
+		<Filter NodeGuid="dcb42350-f706-45bc-9043-934961370b1a" TypeGuid="27a97ffe-065b-4684-9035-80793463eb7b">
+			<Property Name="Count of copies" Value="1" />
+			<Pin Name="Original" ConnectedToNode="c1bfd728-c75e-464b-a955-2dcadc60913e" ConnectedToPin="Input 1" />
+			<Pin Name="Copy № 1" ConnectedToNode="f6368250-6f51-4ea8-99c4-d95daa509073" ConnectedToPin="Image" />
+		</Filter>
+		<!-- Or -->
+		<Filter NodeGuid="c1bfd728-c75e-464b-a955-2dcadc60913e" TypeGuid="3dcac308-c46b-4ac5-aaf4-e7553fc1a805">
+			<Pin Name="Or" ConnectedToNode="61269cab-e360-45f2-995e-24194d41db45" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Clone -->
+		<Filter NodeGuid="0ba7cbad-71cd-4d82-a8c6-f6e78d8720dd" TypeGuid="27a97ffe-065b-4684-9035-80793463eb7b">
+			<Property Name="Count of copies" Value="1" />
+			<Pin Name="Original" ConnectedToNode="474d04ff-a99c-4ccc-bef7-e884779f68f2" ConnectedToPin="Input 0" />
+			<Pin Name="Copy № 1" ConnectedToNode="8a9a34fc-aa3d-4ce5-88df-7e510a1c4116" ConnectedToPin="Input" />
+		</Filter>
+		<!-- Or -->
+		<Filter NodeGuid="474d04ff-a99c-4ccc-bef7-e884779f68f2" TypeGuid="3dcac308-c46b-4ac5-aaf4-e7553fc1a805">
+			<Pin Name="Or" ConnectedToNode="398ac0a0-8a15-43d5-9a46-7e12cfbbb48e" ConnectedToPin="Image" />
+		</Filter>
+		<!-- WinFormsRenderer -->
+		<Filter NodeGuid="c01be4d7-acd1-4b05-a6fd-2317d9bdaf63" TypeGuid="39ef4f36-2239-4e02-92e2-d65e8b63b396">
+			<Property Name="Name" Value="Image" />
+			<Property Name="Size" Value="480,540" />
+			<Property Name="Point" Value="2880,0" />
+			<Property Name="Border" Value="None" />
+			<Property Name="Zoom" Value="100" />
+		</Filter>
+		<!-- Crop -->
+		<Filter NodeGuid="b5a36126-9912-4ba0-b2ee-710912c7847d" TypeGuid="0b485d8d-3eb0-41d3-9260-ab937cff95e7">
+			<Property Name="Point" Value="0,0" />
+			<Property Name="Size" Value="480,540" />
+			<Pin Name="Output" ConnectedToNode="0ba7cbad-71cd-4d82-a8c6-f6e78d8720dd" ConnectedToPin="Input" />
+		</Filter>
+		<!-- WinFormsRenderer -->
+		<Filter NodeGuid="398ac0a0-8a15-43d5-9a46-7e12cfbbb48e" TypeGuid="39ef4f36-2239-4e02-92e2-d65e8b63b396">
+			<Property Name="Name" Value="Image" />
+			<Property Name="Size" Value="480,540" />
+			<Property Name="Point" Value="3360,0" />
+			<Property Name="Border" Value="None" />
+			<Property Name="Zoom" Value="100" />
+		</Filter>
+		<!-- Clone -->
+		<Filter NodeGuid="61269cab-e360-45f2-995e-24194d41db45" TypeGuid="27a97ffe-065b-4684-9035-80793463eb7b">
+			<Property Name="Count of copies" Value="1" />
+			<Pin Name="Original" ConnectedToNode="474d04ff-a99c-4ccc-bef7-e884779f68f2" ConnectedToPin="Input 1" />
+			<Pin Name="Copy № 1" ConnectedToNode="c01be4d7-acd1-4b05-a6fd-2317d9bdaf63" ConnectedToPin="Image" />
+		</Filter>
+	</Filters>
+	<Locations>
+		<Location Node="00ffe859-d081-440a-9b6f-5babde7e8594" X="35" Y="24" />
+		<Location Node="5ac41b12-d9af-4fa8-8780-51e1b9382e26" X="229" Y="89" />
+		<Location Node="c83df028-d02c-4db1-bddf-42886cf9d486" X="419" Y="85" />
+		<Location Node="1129574e-2a00-4fff-8ae5-05f1e82b6fe8" X="572" Y="53" />
+		<Location Node="6b43b845-25bd-48e5-ba5d-6f6e685f0c3f" X="537" Y="203" />
+		<Location Node="61610072-a645-432e-9a1c-1f5e181fbb7b" X="584" Y="195" />
+		<Location Node="f6d733aa-50ae-459d-93ad-c28937395efb" X="575" Y="217" />
+		<Location Node="324b29da-aeb6-45b0-9e56-b410fc23ca94" X="281" Y="103" />
+		<Location Node="01a1769b-dd4b-4453-82c2-f8f1a27c1bb8" X="240" Y="293" />
+		<Location Node="b19ee2d9-74b8-41c0-a0b5-6b1577b499c9" X="547" Y="10" />
+		<Location Node="a0287619-b5f2-4911-90ec-9433d49d599f" X="382" Y="374" />
+		<Location Node="4dbb37cd-b9a9-4c7f-b63e-dde600d7f80d" X="1011" Y="213" />
+		<Location Node="933537c0-d354-48b0-bcac-69bf75e01428" X="865" Y="66" />
+		<Location Node="29158ba7-5943-487d-be59-6aa781c36f99" X="264" Y="146" />
+		<Location Node="f6368250-6f51-4ea8-99c4-d95daa509073" X="1018" Y="484" />
+		<Location Node="9743d71b-8e9d-4e63-bfa9-283eb4d0fa64" X="600" Y="443" />
+		<Location Node="1cffc7a1-1acb-4423-901f-e2f972affcfe" X="592" Y="251" />
+		<Location Node="737b3c86-c381-4868-9997-b5293ac45fc6" X="106" Y="165" />
+		<Location Node="8a9a34fc-aa3d-4ce5-88df-7e510a1c4116" X="169" Y="345" />
+		<Location Node="7055d741-973c-401c-81f0-652155c66534" X="205" Y="25" />
+		<Location Node="34b5e90a-6bf9-445f-93b9-7f93465d74e2" X="367" Y="19" />
+		<Location Node="2ce4c4f3-6ac9-4f46-8e1e-2923df61caf5" X="815" Y="314" />
+		<Location Node="dcb42350-f706-45bc-9043-934961370b1a" X="811" Y="432" />
+		<Location Node="c1bfd728-c75e-464b-a955-2dcadc60913e" X="1014" Y="381" />
+		<Location Node="0ba7cbad-71cd-4d82-a8c6-f6e78d8720dd" X="394" Y="205" />
+		<Location Node="474d04ff-a99c-4ccc-bef7-e884779f68f2" X="1172" Y="97" />
+		<Location Node="c01be4d7-acd1-4b05-a6fd-2317d9bdaf63" X="1352" Y="330" />
+		<Location Node="b5a36126-9912-4ba0-b2ee-710912c7847d" X="738" Y="3" />
+		<Location Node="99d5eedd-6598-4eca-a804-6404b52a1b12" X="788" Y="29" />
+		<Location Node="398ac0a0-8a15-43d5-9a46-7e12cfbbb48e" X="1355" Y="103" />
+		<Location Node="61269cab-e360-45f2-995e-24194d41db45" X="1175" Y="361" />
+	</Locations>
+</OCVGraph>
